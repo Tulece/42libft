@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 16:17:21 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/01 20:18:40 by anporced         ###   ########.fr       */
+/*   Created: 2023/10/03 14:57:29 by anporced          #+#    #+#             */
+/*   Updated: 2023/10/04 20:14:01 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *pointer, int value, size_t count)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	int		i;
 	char	*temp;
 
 	i = 0;
-	temp = (char *)pointer;
-	while (count > 0)
+	temp = (char *)s;
+	while (n > 0)
 	{
-		temp[i] = value;
+		temp[i] = c;
 		i++;
-		count--;
+		n--;
 	}
-	return (pointer);
+	return (s);
 }

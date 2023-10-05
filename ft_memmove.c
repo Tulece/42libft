@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 14:57:48 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/04 20:44:24 by anporced         ###   ########.fr       */
+/*   Created: 2023/10/03 14:57:25 by anporced          #+#    #+#             */
+/*   Updated: 2023/10/04 20:34:23 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	size_t	len;
+	int		i;
+	char	*temp;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	i = 0;
+	temp = (char *)s;
+	while (n > 0)
+	{
+		temp[i] = '\0';
+		i++;
+		n--;
+	}
 }

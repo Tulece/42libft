@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anporced <anporced@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/01 16:07:00 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/01 16:09:30 by anporced         ###   ########.fr       */
+/*   Created: 2023/10/03 14:57:02 by anporced          #+#    #+#             */
+/*   Updated: 2023/10/04 15:49:47 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {

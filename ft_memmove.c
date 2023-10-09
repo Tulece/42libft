@@ -6,23 +6,37 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:57:25 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/04 20:34:23 by anporced         ###   ########.fr       */
+/*   Updated: 2023/10/09 22:50:48 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int		i;
-	char	*temp;
+	char	*d;
+	char	*s;
+	size_t	i;
 
+	d = (char *) dest;
+	s = (char *) src;
 	i = 0;
-	temp = (char *)s;
-	while (n > 0)
+	if (!src && !dest)
+		return (0);
+	if (s < d)
 	{
-		temp[i] = '\0';
-		i++;
-		n--;
+		while (n--)
+		{
+			d[n] = s[n];
+		}
 	}
+	else
+	{
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dest);
 }

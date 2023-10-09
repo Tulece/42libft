@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:49:43 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/04 20:21:14 by anporced         ###   ########.fr       */
+/*   Updated: 2023/10/09 23:02:22 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 int	ft_atoi(const char *s)
 {
 	int	sign;
-	int	i;
 	int	res;
 
 	sign = 1;
-	i = 0;
 	res = 0;
-	if (!s)
-		return (0);
-	while ((s[i] >= 9 && s[i] <= 13) || (s[i] == 32))
-		i++;
-	if (s[i] == '+' || s[i] == '-')
+	while ((*s >= 9 && *s <= 13) || *s == 32)
+		s++;
+	if (*s == '-' || *s == '+')
 	{
-		if (s[i] == '-')
+		if (*s == '-')
 			sign = -1;
-		i++;
+		s++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	while (*s >= '0' && *s <= '9')
 	{
-		res = res * 10 + s[i] - '0';
-		i++;
+		if (res > 214748364 && (sign == 1 || (*s - '0') > 7))
+			return (-1);
+		else if (res > 214748364 && sign == -1 && (*s - '0') > 8)
+			return (0);
+		res = res * 10 + (*s - '0');
+		s++;
 	}
 	return (res * sign);
 }

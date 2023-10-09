@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:56:54 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/04 20:05:39 by anporced         ###   ########.fr       */
+/*   Updated: 2023/10/09 21:52:38 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char *ptr;
+	char	*ptr;
 
 	ptr = malloc(count * size);
 	if (ptr == NULL)

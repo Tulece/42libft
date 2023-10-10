@@ -6,13 +6,13 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 00:42:45 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/10 00:54:57 by anporced         ###   ########.fr       */
+/*   Updated: 2023/10/10 10:38:37 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddfront(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
 		return ;

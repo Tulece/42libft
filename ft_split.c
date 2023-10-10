@@ -5,70 +5,82 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/10 00:28:45 by anporced          #+#    #+#             */
-/*   Updated: 2023/10/10 00:29:02 by anporced         ###   ########.fr       */
+/*   Created: 2023/10/10 12:35:53 by anporced          #+#    #+#             */
+/*   Updated: 2023/10/10 12:38:12 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(const char *s, char c)
+static int	ft_count_words(char const *s, char c)
 {
-	int	count;
+	int		i;
+	int		count;
 
+	i = 0;
 	count = 0;
-	while (*s)
+	if (!s[i])
+		return (0);
+	while (s[i])
 	{
-		while (*s == c)
-			s++;
-		if (*s && *s != c)
+		if (s[i] != c)
 		{
 			count++;
-			while (*s && *s != c)
-				s++;
+			while (s[i] && s[i] != c)
+				i++;
 		}
+		else
+			i++;
 	}
 	return (count);
 }
 
-static char	*strdup_word(const char *s, char c)
+static int	ft_word_len(char const *s, char c)
 {
-	int		len;
-	char	*word;
+	int		i;
 
-	len = 0;
-	while (s[len] && s[len] != c)
-		len++;
-	word = (char *)malloc(sizeof(char) * (len + 1));
-	if (!word)
-		return (NULL);
-	ft_strlcpy(word, s, len + 1);
-	return (word);
+	i = 0;
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
+}
+
+static char	**ft_free(char **tab, int i)
+{
+	while (i >= 0)
+	{
+		free(tab[i]);
+		i--;
+	}
+	free(tab);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**result;
+	char	**tab;
 	int		i;
-	int		words;
+	int		j;
 
+	i = 0;
+	j = 0;
 	if (!s)
 		return (NULL);
-	words = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (words + 1));
-	if (!result)
+	tab = (char **)ft_calloc(sizeof(char *), (ft_count_words(s, c) + 1));
+	if (!tab)
 		return (NULL);
-	i = -1;
-	while (++i < words)
+	while (s[i])
 	{
-		while (*s == c)
-			s++;
-		result[i] = strdup_word(s, c);
-		if (!result[i])
-			return (NULL);
-		while (*s && *s != c)
-			s++;
+		if (s[i] != c)
+		{
+			tab[j] = ft_substr(s, i, ft_word_len(&s[i], c));
+			if (!tab[j])
+				return (ft_free(tab, j));
+			j++;
+			i += ft_word_len(&s[i], c);
+		}
+		else
+			i++;
 	}
-	result[i] = NULL;
-	return (result);
+	return (tab);
 }

@@ -12,12 +12,16 @@ Linked List Management: (If included) Basic operations for linked list manipulat
 
 How to Compile
 Compile the library using the provided Makefile:
+
 make
+
 This command will generate a libft.a static library file.
 
 USAGE
 Include libft.h in your C projects and link against libft.a during compilation:
+
 gcc -Wall -Wextra -Werror -I. -c your_project.c
+
 gcc -o your_project your_project.o -L. -lft
 
 Core Functions

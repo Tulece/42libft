@@ -6,11 +6,11 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 19:09:06 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/30 23:09:13 by anporced         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:26:09 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/get_next_line.h"
 
 char	*ft_get_line(char *stash)
 {
@@ -24,7 +24,7 @@ char	*ft_get_line(char *stash)
 		i++;
 	if (stash[i] == '\n')
 		i++;
-	res = ft_substr(stash, 0, i);
+	res = ft_substr_gnl(stash, 0, i);
 	return (res);
 }
 
@@ -40,7 +40,7 @@ char	*ft_stash_update(char *stash)
 		i++;
 	if (stash[i] == '\n')
 		i++;
-	res = ft_substr(stash, i, ft_strlen(stash) - i + 1);
+	res = ft_substr_gnl(stash, i, ft_strlen_gnl(stash) - i + 1);
 	if (!res)
 	{
 		free(stash);
@@ -60,7 +60,7 @@ char	*ft_read(int fd, char *buffer, char *stash)
 	int	read_value;
 
 	read_value = 1;
-	while (read_value > 0 && !ft_strchr(stash, '\n'))
+	while (read_value > 0 && !ft_strchr_gnl(stash, '\n'))
 	{
 		read_value = read(fd, buffer, BUFFER_SIZE);
 		if (read_value <= -1)
@@ -68,7 +68,7 @@ char	*ft_read(int fd, char *buffer, char *stash)
 		if (read_value > 0)
 		{
 			buffer[read_value] = '\0';
-			stash = ft_strjoin(stash, buffer);
+			stash = ft_strjoin_gnl(stash, buffer);
 			if (!stash)
 				return (free(buffer), NULL);
 		}

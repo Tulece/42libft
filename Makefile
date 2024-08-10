@@ -24,11 +24,14 @@ SRCS =	src/ft_isdigit.c src/ft_isalpha.c src/ft_isalnum.c src/ft_isascii.c \
 		src/get_next_line/get_next_line.c \
 		src/get_next_line/get_next_line_utils.c \
 		src/get_next_line/get_next_line_bonus.c \
-		src/get_next_line/get_next_line_utils_bonus.c
+		src/get_next_line/get_next_line_utils_bonus.c \
+		src/ft_free_tab.c src/ft_lstinsert.c src/ft_sprintf.c \
+		src/ft_strappend.c src/ft_strcat.c src/ft_strcmp.c src/ft_strcpy.c \
+		src/ft_strjoin_free.c src/ft_strncpy.c src/ft_strndup.c \
 
 OBJS = ${SRCS:.c=.o}
 
-RM = rm -f
+RM = @rm -f
 
 CC = gcc
 
@@ -37,11 +40,11 @@ FLAGS = -Wall -Wextra -Werror
 INCLUDES = -I./includes
 
 .c.o:
-	${CC} ${FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}
+	@${CC} ${FLAGS} ${INCLUDES} -c $< -o ${<:.c=.o}
 
 ${NAME}: ${OBJS}
-	ar -rcs ${NAME} ${OBJS}
-	@echo "${GREEN}✔ ${NAME} compilation successful!${NC}"
+	@ar -rcs ${NAME} ${OBJS}
+	@echo "${GREEN}✔ ${NAME} compilation successful.${NC}"
 
 all: ${NAME}
 
@@ -49,8 +52,8 @@ clean:
 	${RM} ${OBJS}
 
 fclean:    clean
-	${RM} ${NAME}
-	@echo "${RED}Executable removed.${NC}"
+	@${RM} ${NAME}
+	@echo "${RED}✗ Executable removed.${NC}"
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: anporced <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 18:38:19 by anporced          #+#    #+#             */
-/*   Updated: 2023/11/15 23:57:33 by anporced         ###   ########.fr       */
+/*   Updated: 2024/08/10 12:19:39 by anporced         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 #  define BUFFER_SIZE 1
 # endif
 
-size_t	ft_strlen(char const *str);
-char	*ft_strjoin(char *s1, char const *s2);
+size_t	ft_strlen_gnl(char const *str);
+char	*ft_strjoin_gnl(char *s1, char const *s2);
 char	*ft_stash_update(char *stash);
 char	*ft_get_line(char *stash);
 char	*ft_read(int fd, char *buf, char *stash);
 char	*get_next_line(int fd);
-char	*ft_strdup(char const *src);
-char	*ft_strchr(char const *str, int c);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strdup_gnl(char const *src);
+char	*ft_strchr_gnl(char const *str, int c);
+char	*ft_substr_gnl(const char *s, unsigned int start, size_t len);
 
 #endif
